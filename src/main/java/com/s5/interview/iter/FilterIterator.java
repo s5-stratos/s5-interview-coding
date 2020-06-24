@@ -2,13 +2,10 @@ package com.s5.interview.iter;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
-
-import javax.annotation.Nonnull;
-
-import com.google.common.base.Predicate;
+import java.util.function.Predicate;
 
 public final class FilterIterator<A> implements Iterator<A> {
-    public FilterIterator(@Nonnull Iterator<A> underlying, Predicate<A> pred) {
+    public FilterIterator(Iterator<A> underlying, Predicate<A> pred) {
         base = underlying;
         predicate = pred;
         isComplete = false;
@@ -43,7 +40,7 @@ public final class FilterIterator<A> implements Iterator<A> {
         while (!isComplete && bufferedA == null) {
             if (base.hasNext()) {
                 A nextA = base.next();
-                if (predicate.apply(nextA)) {
+                if (predicate.test(nextA)) {
                     bufferedA = nextA;
                 }
             } else {

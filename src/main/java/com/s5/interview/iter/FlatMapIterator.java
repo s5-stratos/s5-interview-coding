@@ -4,11 +4,9 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.function.Function;
 
-import javax.annotation.Nonnull;
-
 public class FlatMapIterator<A, B> implements Iterator<B> {
 
-    public FlatMapIterator(@Nonnull Iterator<A> underlying, @Nonnull Function<A, Iterator<B>> mapFunc) {
+    public FlatMapIterator(Iterator<A> underlying, Function<A, Iterator<B>> mapFunc) {
         base = underlying;
         mapWith = mapFunc;
     }

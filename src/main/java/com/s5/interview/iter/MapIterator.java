@@ -3,10 +3,8 @@ package com.s5.interview.iter;
 import java.util.Iterator;
 import java.util.function.Function;
 
-import javax.annotation.Nonnull;
-
 public class MapIterator<A, B> implements Iterator<B> {
-    public MapIterator(@Nonnull Iterator<A> underlying, @Nonnull Function<A, B> mapFunc) {
+    public MapIterator(Iterator<A> underlying, Function<A, B> mapFunc) {
         base = underlying;
         mapWith = mapFunc;
     }
