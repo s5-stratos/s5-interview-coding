@@ -6,6 +6,9 @@ import java.util.function.Predicate;
 import com.s5.interview.iter.FilterIterator;
 import com.s5.interview.query.*;
 
+/**
+ * A plan Node that performs filtering on a node
+ */
 public class FilterNode implements Node {
 
     public FilterNode(Node base, FilterExpr filter) {
@@ -15,10 +18,7 @@ public class FilterNode implements Node {
 
     @Override
     public NodeResult execute(Map<String, Table> tables) throws BadPlanException {
-        NodeResult intermediate = underlying.execute(tables);
-        Metadata metadata = intermediate.getMetadata();
-        Predicate<Row> filter = filterExpr.createPredicate(intermediate.getMetadata());
-        return new NodeResult(metadata, () -> new FilterIterator<>(intermediate.iterator(), filter));
+        throw new UnsupportedOperationException("Implement me");
     }
 
     private Node underlying;

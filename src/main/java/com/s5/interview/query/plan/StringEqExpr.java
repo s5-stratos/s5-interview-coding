@@ -8,6 +8,9 @@ import com.s5.interview.query.OrderedColumn;
 import com.s5.interview.query.Row;
 import com.s5.interview.query.Type;
 
+/**
+ * A filter expression that checks String equality
+ */
 public class StringEqExpr extends FilterExpr {
     public StringEqExpr(String col, String val) {
         column = col;
@@ -16,11 +19,7 @@ public class StringEqExpr extends FilterExpr {
 
     @Override
     public Predicate<Row> createPredicate(Metadata metadata) throws BadPlanException {
-        OrderedColumn col = metadata.findByName(column).orElseThrow(() -> new BadPlanException());
-        if (col.getType() != Type.StringType) {
-            throw new BadPlanException();
-        }
-        return (row) -> row.get(col.getIndex()).getString().equals(value);
+        throw new UnsupportedOperationException("Implement me");
     }
 
     private String column;

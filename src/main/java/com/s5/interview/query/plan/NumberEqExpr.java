@@ -15,8 +15,7 @@ public class NumberEqExpr extends FilterExpr {
 
     @Override
     public Predicate<Row> createPredicate(Metadata metadata) throws BadPlanException {
-        OrderedColumn col = metadata.findByName(column).orElseThrow(() -> new BadPlanException());
-        return (row) -> row.get(col.getIndex()).getNumber() == value;
+        throw new UnsupportedOperationException("Implement me");
     }
 
     private String column;

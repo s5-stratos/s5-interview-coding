@@ -11,6 +11,9 @@ import com.s5.interview.query.Metadata;
 import com.s5.interview.query.Row;
 import com.s5.interview.query.Table;
 
+/**
+ * A plan node that performs cross joins on two nodes
+ */
 public class JoinNode implements Node {
 
     public JoinNode(Node left, Node right) {
@@ -20,14 +23,7 @@ public class JoinNode implements Node {
 
     @Override
     public NodeResult execute(Map<String, Table> tables) throws BadPlanException {
-        NodeResult leftResult = leftNode.execute(tables);
-        NodeResult rightResult = rightNode.execute(tables);
-
-        Metadata metadata = leftResult.getMetadata().combine(rightResult.getMetadata());
-        Supplier<Iterator<Row>> rows = () -> new FlatMapIterator<>(leftResult.iterator(),
-                (left) -> new MapIterator<>(rightResult.iterator(), (right) -> left.combine(right)));
-
-        return new NodeResult(metadata, rows);
+        throw new UnsupportedOperationException("Implement me");
     }
 
     private Node leftNode;

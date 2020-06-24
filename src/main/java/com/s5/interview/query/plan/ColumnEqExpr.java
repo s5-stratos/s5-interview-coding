@@ -7,6 +7,9 @@ import com.s5.interview.query.Metadata;
 import com.s5.interview.query.OrderedColumn;
 import com.s5.interview.query.Row;
 
+/**
+ * A FilterExpr that compares the value in one column to the value in another
+ */
 public class ColumnEqExpr extends FilterExpr {
     public ColumnEqExpr(String l, String r) {
         left = l;
@@ -15,9 +18,7 @@ public class ColumnEqExpr extends FilterExpr {
 
     @Override
     public Predicate<Row> createPredicate(Metadata metadata) throws BadPlanException {
-        OrderedColumn leftCol = metadata.findByName(left).orElseThrow(() -> new BadPlanException());
-        OrderedColumn rightCol = metadata.findByName(right).orElseThrow(() -> new BadPlanException());
-        return (row) -> row.get(leftCol.getIndex()).equals(row.get(rightCol.getIndex()));
+        throw new UnsupportedOperationException("Implement me");
     }
 
     private String left;

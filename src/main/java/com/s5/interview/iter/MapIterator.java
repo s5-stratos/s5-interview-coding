@@ -5,20 +5,16 @@ import java.util.function.Function;
 
 public class MapIterator<A, B> implements Iterator<B> {
     public MapIterator(Iterator<A> underlying, Function<A, B> mapFunc) {
-        base = underlying;
-        mapWith = mapFunc;
+
     }
 
     @Override
     public boolean hasNext() {
-        return base.hasNext();
+        throw new UnsupportedOperationException("Implement me");
     }
 
     @Override
     public B next() {
-        return mapWith.apply(base.next());
+        throw new UnsupportedOperationException("Implement me");
     }
-
-    private Iterator<A> base;
-    private Function<A, B> mapWith;
 }
