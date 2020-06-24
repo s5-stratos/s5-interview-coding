@@ -2,10 +2,7 @@ package com.s5.interview.query.plan;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.stream.Stream;
 
 import com.s5.interview.query.BadPlanException;
 import com.s5.interview.query.Column;
